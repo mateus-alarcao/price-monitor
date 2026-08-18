@@ -11,13 +11,20 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class Offer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String link;
+
     private BigDecimal precoAtual;
+
     private String loja;
+
     private LocalDateTime ultimaVerificacao;
+
+    private String seletorPreco;
 
     @ManyToOne
     @JoinColumn(name = "product_id")

@@ -1,7 +1,7 @@
 package com.mateus.price_monitor.controller;
 
 import com.mateus.price_monitor.model.Product;
-import com.mateus.price_monitor.repository.ProductRepository;
+import com.mateus.price_monitor.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,19 +10,19 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
-    private final ProductRepository productRepository;
+    private final ProductService productService;
 
-    public ProductController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping
     public List<Product> listarProdutos() {
-        return productRepository.findAll();
+        return productService.listar();
     }
 
     @PostMapping
-    public Product cadastrarProduto(@RequestBody Product product){
-        return productRepository.save(product);
+    public Product cadastrarProduto(@RequestBody Product product) {
+        return productService.salvar(product);
     }
 }
