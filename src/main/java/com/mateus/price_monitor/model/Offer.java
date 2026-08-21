@@ -26,6 +26,8 @@ public class Offer {
 
     private String seletorPreco;
 
+    private boolean precoCaiu;
+
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;

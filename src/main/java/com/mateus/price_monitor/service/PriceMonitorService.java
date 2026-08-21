@@ -45,6 +45,9 @@ public class PriceMonitorService {
             System.out.println("Loja: " + offer.getLoja());
             System.out.println("De: R$ " + precoAntigo);
             System.out.println("Para: R$ " + precoNovo);
+            offer.setPrecoCaiu(true);
+        }else {
+            offer.setPrecoCaiu(false);
         }
 
         offer.setPrecoAtual(precoNovo);
